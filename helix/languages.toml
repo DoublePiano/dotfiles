@@ -1,0 +1,13 @@
+[[language]]
+name = "ocaml"
+formatter = { command = "ocamlformat", args = [
+  "-",
+  "--impl",
+  "--enable-outside-detected-project", # Enable only if you want to format files outside of projects
+] }
+
+[language-server.clangd]
+command = "clangd"
+# args = "-std=c++20"
+config = { "clangd.fallbackFlags" = [ "-std=c++20" ] }
+args=["--compile-commands-dir=$HOME"]

@@ -1,0 +1,92 @@
+# theme = "ayu_light"
+# theme = "ayu_light_transparent"
+# theme = "gruvbox_light"
+# theme = "gruvbox_light_transparent"
+# theme = "noctis"
+# theme = "noctis_transparent"
+theme = "adwaita-dark_transparent"
+# theme = "dracula_at_night_transparent"
+
+
+[editor]
+# line-number = "relative"
+true-color = true
+bufferline = "multiple"
+# cursorline = true
+auto-format = true
+color-modes = true
+idle-timeout = 1
+# undercurl = false
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+scroll-lines = 1
+scrolloff = 10
+# rulers = [120]
+# auto-pairs = false
+mouse = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.whitespace.render]
+newline = "all"
+
+[editor.indent-guides]
+render = true
+# character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.insert]
+j = {k='normal_mode',j={k=[':insert-output /bin/echo -n j','move_char_right','normal_mode']}}
+A-backspace = "delete_word_backward"
+# S-backspace = "delete_word_backward"
+C-s = [":w", "normal_mode"] # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-l = "move_char_right"
+C-h = "move_char_left"
+
+[keys.normal]
+D = "delete_char_backward"
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+# esc =  ["collapse_selection", "keep_primary_selection"]
+"C-n" = "extend_search_next"
+"C-N" = "extend_search_prev"
+"A-w" = ":buffer-close"
+# A-x = "extend_to_line_bounds" <--- I DON'T SEE WHY THIS WOULD BE USEFUL
+X = ["extend_line_up", "extend_to_line_bounds"]
+A-r = ":sh g++ -g *.cc -o prog"
+C-r = ":sh g++ *.cc -o prog"
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+W = "extend_next_word_start"
+B = "extend_prev_word_start"
+H = "extend_char_left"
+L = "extend_char_right"
+K = "extend_line_up"
+J = "extend_line_down" 
+C-j = ["scroll_down", "scroll_down", "scroll_down"]#, "scroll_down"]
+C-k = ["scroll_up", "scroll_up", "scroll_up"] #, "scroll_up"]
+A-j = "join_selections"
+"C-," = "goto_previous_buffer"
+"C-." = "goto_next_buffer"
+C-a = "save_selection"
+
+# C-C = ":sh clang++ -g -o run"
+
+# [keys.select]
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "total-line-numbers", "file-encoding"]
+center = []
+right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "version-control"]
+
