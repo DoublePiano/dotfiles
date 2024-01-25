@@ -45,7 +45,7 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-j = {k='normal_mode',j={k=[':insert-output /bin/echo -n j','move_char_right','normal_mode']}}
+# j = {k='normal_mode',j={k=[':insert-output /bin/echo -n j','move_char_right','normal_mode']}}
 A-backspace = "delete_word_backward"
 # S-backspace = "delete_word_backward"
 C-s = [":w", "normal_mode"] # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
@@ -71,9 +71,10 @@ H = "extend_char_left"
 L = "extend_char_right"
 K = "extend_line_up"
 J = "extend_line_down" 
-C-j = ["scroll_down", "scroll_down", "scroll_down"]#, "scroll_down"]
-C-k = ["scroll_up", "scroll_up", "scroll_up"] #, "scroll_up"]
-A-j = "join_selections"
+# C-j = ["scroll_down", "scroll_down", "scroll_down"]#, "scroll_down"]
+# C-k = ["scroll_up", "scroll_up", "scroll_up"] #, "scroll_up"]
+C-j = "join_selections"
+# A-j = "join_selections"
 "C-," = "goto_previous_buffer"
 "C-." = "goto_next_buffer"
 C-a = "save_selection"
