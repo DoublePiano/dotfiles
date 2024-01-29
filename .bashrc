@@ -131,6 +131,7 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias code='flatpak run com.visualstudio.code'
 alias wimg='wezterm imgcat'
 alias sudo='sudo '
+alias bd=". bd -si"
 # alias apt='nala'
 # fh - search in your command history and execute selected command
 fh() {
