@@ -1,31 +1,31 @@
 # TAGET FRÅN INTERNET FÖR ATT GÖRA DET MÖJLIGT ATT ÖPPNA TAB I SAMMA DIR>>>>>>>>>>>>>>>>>>
 
-# __vte_urlencode() {
-# 	local length="${#1}"
-# 	for (( i = 0; i < length; i++ )); do
-# 		local c="${1:$i:1}"
-# 		case $c in
-# 			%) printf '%%%02X' "'$c" ;;
-# 			*) printf "%s" "$c" ;;
-# 		esac
-# 	done
-# }
+__vte_urlencode() {
+	local length="${#1}"
+	for (( i = 0; i < length; i++ )); do
+		local c="${1:$i:1}"
+		case $c in
+			%) printf '%%%02X' "'$c" ;;
+			*) printf "%s" "$c" ;;
+		esac
+	done
+}
 
-# __vte_osc7 () {
-#   printf "\033]7;file://%s%s\007" "${HOSTNAME:-}" "$(__vte_urlencode "${PWD}")"
-# }
+__vte_osc7 () {
+  printf "\033]7;file://%s%s\007" "${HOSTNAME:-}" "$(__vte_urlencode "${PWD}")"
+}
 
-# __vte_prompt_command() {
-#   local command=$(HISTTIMEFORMAT= history 1 | sed 's/^ *[0-9]\+ *//')
-#   command="${command//;/ }"
-#   local pwd='~'
-#   [ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
-#   printf "\033]777;notify;Command completed;%s\007\033]0;%s@%s:%s\007%s" "${command}" "${USER}" "${HOSTNAME%%.*}" "${pwd}" "$(__vte_osc7)"
-# }
+__vte_prompt_command() {
+  local command=$(HISTTIMEFORMAT= history 1 | sed 's/^ *[0-9]\+ *//')
+  command="${command//;/ }"
+  local pwd='~'
+  [ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
+  printf "\033]777;notify;Command completed;%s\007\033]0;%s@%s:%s\007%s" "${command}" "${USER}" "${HOSTNAME%%.*}" "${pwd}" "$(__vte_osc7)"
+}
 
-# [ -n "$BASH_VERSION" ] && PROMPT_COMMAND="__vte_prompt_command"
+[ -n "$BASH_VERSION" ] && PROMPT_COMMAND="__vte_prompt_command"
 
-# true
+true
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -142,7 +142,7 @@ export VISUAL=/usr/bin/hx
 # CHROME_EXECUTABLE="/var/lib/flatpak/app/org.chromium.Chromium/current/active/export/bin/org.chromium.Chromium"; export CHROME_EXECUTABLE# Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-xmodmap .Xmodmap
+xmodmap ~/.Xmodmap
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -169,6 +169,7 @@ export PATH="/home/ppo/.local/bin:$PATH"
 
 source /home/ppo/.config/broot/launcher/bash/br
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+cd ~/skola
