@@ -14,9 +14,9 @@ config = {
 }
 
 
-wezterm.on('window-config-reloaded', function(window, pane)
-  window:toast_notification('wezterm', 'configuration reloaded!', nil, 4000)
-end)
+-- wezterm.on('window-config-reloaded', function(window, pane)
+--   window:toast_notification('wezterm', 'configuration reloaded!', nil, 4000)
+-- end)
 
 config.color_scheme = "Hivacruz"
 -- config.color_scheme = "Gruvbox Light"

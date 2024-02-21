@@ -9,7 +9,7 @@ theme = "adwaita-dark_transparent"
 
 
 [editor]
-# line-number = "relative"
+line-number = "relative"
 true-color = true
 bufferline = "multiple"
 # cursorline = true
@@ -19,7 +19,7 @@ idle-timeout = 1
 # undercurl = false
 gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
 scroll-lines = 1
-scrolloff = 10
+scrolloff = 5
 # rulers = [120]
 # auto-pairs = false
 mouse = false

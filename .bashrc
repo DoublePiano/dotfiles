@@ -144,6 +144,9 @@ export VISUAL=/usr/bin/hx
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 xmodmap ~/.Xmodmap
 
+eval "$(starship init bash)"
+
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -172,4 +175,24 @@ source /home/ppo/.config/broot/launcher/bash/br
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-cd ~/skola
+
+if [ $PWD == /home/ppo ]; then
+  cd ~/skola
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ppo/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ppo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ppo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ppo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(zoxide init bash --cmd cd)"
