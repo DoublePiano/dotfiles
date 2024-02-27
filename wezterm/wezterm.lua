@@ -18,13 +18,16 @@ config = {
 --   window:toast_notification('wezterm', 'configuration reloaded!', nil, 4000)
 -- end)
 
-config.color_scheme = "Hivacruz"
+-- config.color_scheme = "Hivacruz"
+config.color_scheme = "Azu (Gogh)"
+-- config.color_scheme = "Gruvbox dark, hard (base16)"
 -- config.color_scheme = "Gruvbox Light"
 -- config.color_scheme = "Violet Light"
 -- config.color_scheme = 'Atelier Estuary Light (base16)'
 -- config.color_scheme = 'Atelierlakeside (light) (terminal.sexy)'
 -- config.color_scheme = 'Atelierseaside (light) (terminal.sexy)'
-config.window_background_opacity = 0.97
+config.window_background_opacity = 0.95
+-- config.window_background_opacity = 1
 config.text_background_opacity = 1
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "RESIZE"
@@ -38,9 +41,24 @@ config.window_padding = {
   bottom = 0,
 }
 
+  wezterm.on("hidePane", function(window, pane)
+    window:perform_action(act.ActivatePaneDirection 'Left', pane)
+    window:perform_action(act.ActivatePaneDirection 'Up', pane)
+    window:perform_action(act.TogglePaneZoomState, pane)
+  end)
+
 -- config.window_close_confirmation = "NeverPrompt",
 -- config.skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
 config.keys = {
+  {
+    key = 'a',
+    mods = 'ALT',
+    action = act{EmitEvent="hidePane"},
+  },
+  {
+    key = 'z', mods = 'ALT', action = act.TogglePaneZoomState
+
+  },
   {
     key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left'
 
@@ -54,6 +72,23 @@ config.keys = {
   },
   {
     key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down'
+  },
+  {
+    key = 'l', mods = 'SHIFT|ALT', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' }
+  },
+  {
+    key = 'h', mods = 'CTRL|SHIFT|ALT', action = act.AdjustPaneSize { 'Left', 1 }
+
+  },
+  {
+    key = 'l', mods = 'CTRL|SHIFT|ALT', action = act.AdjustPaneSize { 'Right', 1 }
+  },
+  {
+    key = 'k', mods = 'CTRL|SHIFT|ALT', action = act.AdjustPaneSize { 'Up', 1 }
+
+  },
+  {
+    key = 'j', mods = 'CTRL|SHIFT|ALT', action = act.AdjustPaneSize { 'Down', 1 }
   },
   {
     key = 'l', mods = 'SHIFT|ALT', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' }
@@ -73,6 +108,5 @@ config.keys = {
   {
     key = 's', mods = 'ALT', action = wezterm.action.PaneSelect {mode = 'SwapWithActive'}
   },
-
 }
 return config

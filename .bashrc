@@ -117,21 +117,22 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias w++20='g++-10 -std=c++20 -pedantic -Wall -Wextra'
-export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
-alias fd='cd $(find . -type d | fzf)'
-alias fdx='cd $(find . -type d | fzf); hx .'
-alias fx='hx $(fzf)'
-alias vim='nvim'
-alias fe='fd; nemo .'
-alias wezterm='flatpak run org.wezfurlong.wezterm'
-alias code='flatpak run com.visualstudio.code'
-alias wimg='wezterm imgcat'
-alias sudo='sudo '
-alias bd=". bd -si"
+# alias ls='colorls'
+# alias ll='ls -al'
+# alias la='ls -A'
+# alias l='ls -l'
+# alias w++20='g++-10 -std=c++20 -pedantic -Wall -Wextra'
+# export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
+# alias fd='cd $(find . -type d | fzf)'
+# alias fdx='cd $(find . -type d | fzf); hx .'
+# alias fx='hx $(fzf)'
+# alias vim='nvim'
+# alias fe='fd; nemo .'
+# alias wezterm='flatpak run org.wezfurlong.wezterm'
+# alias code='flatpak run com.visualstudio.code'
+# alias wimg='wezterm imgcat'
+# alias sudo='sudo '
+# alias bd=". bd -si"
 # alias apt='nala'
 # fh - search in your command history and execute selected command
 fh() {
@@ -172,9 +173,6 @@ export PATH="/home/ppo/.local/bin:$PATH"
 
 source /home/ppo/.config/broot/launcher/bash/br
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ $PWD == /home/ppo ]; then
   cd ~/skola
@@ -196,3 +194,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(zoxide init bash --cmd cd)"
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+eval "$(thefuck --alias)"

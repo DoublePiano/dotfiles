@@ -1,3 +1,4 @@
 inherits = "noctis"
 "ui.background" = {}
+# "ui.virtual.inlay-hint" = "#696969"
 # "ui.linenr" = {}

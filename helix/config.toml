@@ -4,11 +4,14 @@
 # theme = "gruvbox_light_transparent"
 # theme = "noctis"
 # theme = "noctis_transparent"
-theme = "adwaita-dark_transparent"
+# theme = "adwaita-dark_transparent"
 # theme = "dracula_at_night_transparent"
+theme = "ayu_dark_inlay"
 
 
 [editor]
+# auto-save = true
+shell = ["bash", "-c"]
 line-number = "relative"
 true-color = true
 bufferline = "multiple"
@@ -22,7 +25,7 @@ scroll-lines = 1
 scrolloff = 5
 # rulers = [120]
 # auto-pairs = false
-mouse = false
+# mouse = false
 
 [editor.soft-wrap]
 enable = true
@@ -78,7 +81,8 @@ C-j = "join_selections"
 "C-," = "goto_previous_buffer"
 "C-." = "goto_next_buffer"
 C-a = "save_selection"
-
+"ö" = ":sh flatpak run org.wezfurlong.wezterm cli split-pane --right --percent 30"
+# flatpak run org.wezfurlong.wezterm
 # C-C = ":sh clang++ -g -o run"
 
 # [keys.select]
