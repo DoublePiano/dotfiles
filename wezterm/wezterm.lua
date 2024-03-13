@@ -26,7 +26,7 @@ config.color_scheme = "Azu (Gogh)"
 -- config.color_scheme = 'Atelier Estuary Light (base16)'
 -- config.color_scheme = 'Atelierlakeside (light) (terminal.sexy)'
 -- config.color_scheme = 'Atelierseaside (light) (terminal.sexy)'
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.97
 -- config.window_background_opacity = 1
 config.text_background_opacity = 1
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
@@ -103,7 +103,7 @@ config.keys = {
     key = 'Tab', mods = 'CTRL', action = wezterm.action.ActivateLastTab
   },
   {
-    key = 'w', mods = 'CMD', action = wezterm.action.CloseCurrentPane { confirm = false }
+    key = 'w', mods = 'ALT', action = wezterm.action.CloseCurrentPane { confirm = false }
   },
   {
     key = 's', mods = 'ALT', action = wezterm.action.PaneSelect {mode = 'SwapWithActive'}

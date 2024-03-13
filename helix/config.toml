@@ -48,9 +48,7 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-# j = {k='normal_mode',j={k=[':insert-output /bin/echo -n j','move_char_right','normal_mode']}}
 A-backspace = "delete_word_backward"
-# S-backspace = "delete_word_backward"
 C-s = [":w", "normal_mode"] # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 C-l = "move_char_right"
 C-h = "move_char_left"
@@ -61,11 +59,10 @@ C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write 
 # esc =  ["collapse_selection", "keep_primary_selection"]
 "C-n" = "extend_search_next"
 "C-N" = "extend_search_prev"
-"A-w" = ":buffer-close"
-# A-x = "extend_to_line_bounds" <--- I DON'T SEE WHY THIS WOULD BE USEFUL
+"C-w" = ":buffer-close"
 X = ["extend_line_up", "extend_to_line_bounds"]
-A-r = ":sh g++ -g *.cc -o prog"
-C-r = ":sh g++ *.cc -o prog"
+# A-r = ":sh g++ -g *.cc -o prog"
+# C-r = ":sh g++ *.cc -o prog"
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
 W = "extend_next_word_start"
@@ -74,18 +71,16 @@ H = "extend_char_left"
 L = "extend_char_right"
 K = "extend_line_up"
 J = "extend_line_down" 
-# C-j = ["scroll_down", "scroll_down", "scroll_down"]#, "scroll_down"]
-# C-k = ["scroll_up", "scroll_up", "scroll_up"] #, "scroll_up"]
 C-j = "join_selections"
-# A-j = "join_selections"
-"C-," = "goto_previous_buffer"
-"C-." = "goto_next_buffer"
 C-a = "save_selection"
 "ö" = ":sh flatpak run org.wezfurlong.wezterm cli split-pane --right --percent 30"
 # flatpak run org.wezfurlong.wezterm
 # C-C = ":sh clang++ -g -o run"
 
 # [keys.select]
+
+[keys.normal.space]
+c = ["extend_to_line_bounds", "toggle_block_comments"]
 
 [editor.file-picker]
 hidden = false

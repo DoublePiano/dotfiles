@@ -173,7 +173,6 @@ export PATH="/home/ppo/.local/bin:$PATH"
 
 source /home/ppo/.config/broot/launcher/bash/br
 
-
 if [ $PWD == /home/ppo ]; then
   cd ~/skola
 fi
