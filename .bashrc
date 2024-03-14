@@ -20,6 +20,7 @@ __vte_prompt_command() {
   command="${command//;/ }"
   local pwd='~'
   [ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
+  # printf "\033]777;%s\007\033]0;%s@%s:%s\007%s" "${command}" "${USER}" "${HOSTNAME%%.*}" "${pwd}" "$(__vte_osc7)"
   printf "\033]777;%s\007\033]0;%s@%s:%s\007%s" "${command}" "${USER}" "${HOSTNAME%%.*}" "${pwd}" "$(__vte_osc7)"
 }
 
@@ -117,22 +118,22 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-# alias ls='colorls'
-# alias ll='ls -al'
-# alias la='ls -A'
-# alias l='ls -l'
-# alias w++20='g++-10 -std=c++20 -pedantic -Wall -Wextra'
-# export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
-# alias fd='cd $(find . -type d | fzf)'
-# alias fdx='cd $(find . -type d | fzf); hx .'
-# alias fx='hx $(fzf)'
-# alias vim='nvim'
-# alias fe='fd; nemo .'
-# alias wezterm='flatpak run org.wezfurlong.wezterm'
-# alias code='flatpak run com.visualstudio.code'
-# alias wimg='wezterm imgcat'
-# alias sudo='sudo '
-# alias bd=". bd -si"
+alias ls='colorls'
+alias ll='ls -al'
+alias la='ls -A'
+alias l='ls -l'
+alias w++20='g++-10 -std=c++20 -pedantic -Wall -Wextra'
+export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
+alias fd='cd $(find . -type d | fzf)'
+alias fdx='cd $(find . -type d | fzf); hx .'
+alias fx='hx $(fzf)'
+alias vim='nvim'
+alias fe='fd; nemo .'
+alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias code='flatpak run com.visualstudio.code'
+alias wimg='wezterm imgcat'
+alias sudo='sudo '
+alias bd=". bd -si"
 # alias apt='nala'
 # fh - search in your command history and execute selected command
 fh() {
