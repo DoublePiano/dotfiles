@@ -12,7 +12,7 @@ theme = "ayu_dark_inlay"
 [editor]
 # auto-save = true
 shell = ["bash", "-c"]
-line-number = "relative"
+# line-number = "relative"
 true-color = true
 bufferline = "multiple"
 # cursorline = true
@@ -72,7 +72,7 @@ L = "extend_char_right"
 K = "extend_line_up"
 J = "extend_line_down" 
 C-j = "join_selections"
-C-a = "save_selection"
+# C-a = "save_selection"
 "ö" = ":sh flatpak run org.wezfurlong.wezterm cli split-pane --right --percent 30"
 # flatpak run org.wezfurlong.wezterm
 # C-C = ":sh clang++ -g -o run"
