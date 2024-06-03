@@ -12,7 +12,7 @@ theme = "ayu_dark_inlay"
 [editor]
 # auto-save = true
 shell = ["bash", "-c"]
-# line-number = "relative"
+line-number = "relative"
 true-color = true
 bufferline = "multiple"
 # cursorline = true
@@ -26,6 +26,7 @@ scrolloff = 5
 # rulers = [120]
 # auto-pairs = false
 # mouse = false
+smart-tab.enable = false
 
 [editor.soft-wrap]
 enable = true
@@ -39,7 +40,7 @@ render = true
 skip-levels = 1
 
 [editor.lsp]
-display-inlay-hints = true
+# display-inlay-hints = true
 display-messages = true
 
 [editor.cursor-shape]

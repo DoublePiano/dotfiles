@@ -1,5 +1,6 @@
 inherits = "ayu_dark"
 "ui.background" = {}
+"diagnostic.warning" = {underline = {color = "#E6B450", style = "curl"}}
 "ui.virtual.inlay-hint" = {fg = "#494949", modifiers = ["bold", "italic"]}
 # "ui.linenr" = {}
 "ui.cursor.match" = {fg = "#ff8f40", bg = "#494949"}

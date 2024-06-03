@@ -139,8 +139,8 @@ alias bd=". bd -si"
 fh() {
   eval $( ([ -n "$BASH" ] && history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
-export EDITOR=/usr/bin/hx
-export VISUAL=/usr/bin/hx
+export EDITOR=/home/ppo/.cargo/bin/hx
+export VISUAL=/home/ppo/.cargo/bin/hx
 # CHROME_EXECUTABLE="/var/lib/flatpak/app/org.chromium.Chromium/current/active/export/bin/org.chromium.Chromium"; export CHROME_EXECUTABLE# Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -197,3 +197,5 @@ eval "$(zoxide init bash --cmd cd)"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 eval "$(thefuck --alias)"
+# export HELIX_RUNTIME=~/src/helix/runtime
+

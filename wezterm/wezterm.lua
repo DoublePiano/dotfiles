@@ -41,11 +41,41 @@ config.window_padding = {
   bottom = 0,
 }
 
-  wezterm.on("hidePane", function(window, pane)
-    window:perform_action(act.ActivatePaneDirection 'Left', pane)
-    window:perform_action(act.ActivatePaneDirection 'Up', pane)
-    window:perform_action(act.TogglePaneZoomState, pane)
-  end)
+-- wezterm.on("launch", function(cmd)
+--   print("hej")
+--   for _, arg in ipairs(cmd.args) do
+--     if arg == "--spawn-pane-if-single" then
+--       -- This delays the execution until the GUI is ready
+--       wezterm.defer(spawn_pane_if_single)
+--       -- Override args to prevent opening a new window
+--       return { args = {} }
+--     end
+--   end
+-- end)
+
+-- function spawn_pane_if_single()
+--   -- Obtain the current tab
+--   local tab, pane, window = wezterm.get_target_with_mouse()
+--   if not tab then
+--     wezterm.log_error("No active tab found!")
+--     return
+--   end
+
+--   -- Check if there's only one pane
+--   if #tab.panes == 1 then
+--     -- Spawn a new pane to the right
+--     window:perform_action(wezterm.action({SplitHorizontal={domain="CurrentPaneDomain"}}), pane)
+--     wezterm.log_info("Spawned a new pane to the right")
+--   else
+--     wezterm.log_info("More than one pane exists, not spawning a new pane")
+--   end
+-- end
+
+wezterm.on("hidePane", function(window, pane)
+  window:perform_action(act.ActivatePaneDirection 'Left', pane)
+  window:perform_action(act.ActivatePaneDirection 'Up', pane)
+  window:perform_action(act.TogglePaneZoomState, pane)
+end)
 
 -- config.window_close_confirmation = "NeverPrompt",
 -- config.skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
@@ -57,7 +87,6 @@ config.keys = {
   },
   {
     key = 'z', mods = 'ALT', action = act.TogglePaneZoomState
-
   },
   {
     key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left'
