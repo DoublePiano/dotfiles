@@ -8,7 +8,6 @@
 # theme = "dracula_at_night_transparent"
 theme = "ayu_dark_inlay"
 
-
 [editor]
 # auto-save = true
 shell = ["bash", "-c"]
@@ -76,13 +75,7 @@ J = "extend_line_down"
 C-j = "join_selections"
 # C-a = "save_selection"
 "ö" = ":sh flatpak run org.wezfurlong.wezterm cli split-pane --right --percent 30"
-# flatpak run org.wezfurlong.wezterm
-# C-C = ":sh clang++ -g -o run"
-
-# [keys.select]
-
-[keys.normal.space]
-c = ["extend_to_line_bounds", "toggle_block_comments"]
+"=" = ":fmt"
 
 [editor.file-picker]
 hidden = false

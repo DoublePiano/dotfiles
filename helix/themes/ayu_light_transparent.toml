@@ -1,4 +1,15 @@
 inherits = "ayu_light"
-"ui.background" = {}
+# "ui.background" = {}
+# "diagnostic.warning" = {underline = {color = "#E6B450", style = "curl"}}
+"ui.virtual.inlay-hint" = {fg = "#494949", modifiers = ["bold", "italic"]}
 # "ui.linenr" = {}
+"ui.cursor.match" = {fg = "#ff8f40", bg = "#B9B9B9"}
 
+"ui.virtual.jump-label" = {fg = "#ff8f40", bg = "#494949"}
+
+"markup.heading.1" = "#E85553"
+"markup.heading.2" = "#DD9B51"
+"markup.heading.3" = "#F2EE75"
+"markup.heading.4" = "#88E3AD"
+"markup.heading.5" = "#3578F6"
+"markup.heading.6" = "#C6B9FA"

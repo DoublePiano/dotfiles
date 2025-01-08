@@ -171,6 +171,9 @@ fi
 
 export PATH="/home/ppo/.cargo/bin:$PATH"
 export PATH="/home/ppo/.local/bin:$PATH"
+export PATH="/home/ppo/.zig/zig-linux-x86_64-0.13.0:$PATH"
+export PATH="/home/ppo/.roc/roc_nightly-linux_x86_64-2024-06-18-41ea2bf:$PATH"
+export PATH="/home/ppo/anvandbaraprogram/musescore:$PATH"
 
 source /home/ppo/.config/broot/launcher/bash/br
 

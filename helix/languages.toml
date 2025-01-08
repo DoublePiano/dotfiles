@@ -1,35 +1,73 @@
 [language-server.copilot]
-command = "copilot"
-args = ["--stdio"]
+  command = "copilot"
+  args = ["--stdio"]
 
 [[language]]
-name = "ocaml"
-formatter = { command = "ocamlformat", args = [
+  name = "ocaml"
+  formatter = { command = "ocamlformat", args = [
     "-",
     "--impl",
     "--enable-outside-detected-project", # Enable only if you want to format files outside of projects
-] }
+  ] }
+
+[language-server.glslls]
+command = "glslls"
+args = ["--stdin"]
+
+[[language]]
+  name = "glsl"
+  # scope = "source.glsl"
+  file-types = ["glsl", "vert", "tesc", "tese", "geom", "frag", "comp", "vs", "fs"]
+  # roots = []
+  # injection-regex = "glsl"
+  language-servers = ["glslls"]
 
 [language-server.clangd]
-command = "clangd"
-# args = "-std=c++20"
-config = { "clangd.fallbackFlags" = [ "-std=c++20" ] }
-args=["--compile-commands-dir=$HOME"]
+  command = "clangd"
+  # args = "-std=c++20"
+  config = { "clangd.fallbackFlags" = [ "-std=c++20" ] }
+  args=["--compile-commands-dir=$HOME"]
 
 [[language]]
-name = "cpp"
-language-servers = ["clangd", "copilot"]
+  name = "cpp"
+  language-servers = ["clangd", "copilot"]
 
 [[language]]
-name = "python"
-formatter = { command = "black", args = ["--quiet", "-"] }
-auto-format = true
-language-servers = ["pyright", "ruff"]
+  name = "python"
+  formatter = { command = "black", args = ["--quiet", "-"] }
+  auto-format = true
+  language-servers = ["pyright", "ruff"]
 
 [language-server.godot]
-command = "nc" 
-args = [ "127.0.0.1", "6005"]
+  command = "nc" 
+  args = [ "127.0.0.1", "6005"]
 
 [[language]]
-name = "gdscript"
-language-servers = [ "godot" ]
+  name = "gdscript"
+  language-servers = [ "godot" ]
+
+[language-server.roc-ls]
+command = "roc_language_server"
+
+[[language]]
+name = "roc"
+scope = "source.roc"
+injection-regex = "roc"
+file-types = ["roc"]
+shebangs = ["roc"]
+roots = []
+comment-token = "#"
+language-servers = ["roc-ls"]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = { command = "roc", args =[ "format", "--stdin", "--stdout"]}
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+
+[[grammar]]
+name = "roc"
+source = { git = "https://github.com/faldor20/tree-sitter-roc.git", rev = "df46a85abda9f948d38f5d4e3684cec49c42fef2" }
